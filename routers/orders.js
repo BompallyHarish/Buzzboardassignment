@@ -8,9 +8,9 @@ router.post('/orders/create',async (req,res)=>{
     const order = new Order(req.body)
     try {
         const ordercheck = Order.findByCredentials(order.order_id) 
-        if(ordercheck){
-            return res.send('order already exitsing in database')
-        }
+        //if(ordercheck){
+          //  return res.send('order already exitsing in database')
+        //}
         await order.save()
         res.status(201).send(order)
     } catch (error) {

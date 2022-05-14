@@ -31,7 +31,7 @@ const orderschema = new mongoose.Schema({
 
 orderschema.statics.findByCredentials = async (order_id)=>{
     const order = await Order.findOne({ order_id })
-    if (!order) {
+    if (order) {
         throw new Error('order_id already exists in databse')
     }
     return order
